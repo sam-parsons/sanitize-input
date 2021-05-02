@@ -1,13 +1,19 @@
-const Sanitizer = require('../index.js');
-const SanitizerMock = require('../__mocks__/Sanitizer.mock');
+const SanitizerPackage = require('../index.js');
+const CreateSanitizerMock = require('../__mocks__/Sanitizer.mock');
+
+// window.Sanitizes mock fn will be available to all tests
+CreateSanitizerMock();
 
 test('should return string given string argument', () => {
-  Object.defineProperty(window, 'Sanitizer', {
-    writable: true,
-    value: SanitizerMock,
-  });
-
-  expect(Sanitizer('this is a string')).toBe('this is a string');
+  expect(SanitizerPackage('this is a string')).toBe('this is a string');
 });
 
-// how to mock a DOM API in jest?
+test('should return function given function argument', () => {
+  expect(
+    typeof SanitizerPackage(function (e) {
+      return 'sanitized';
+    })
+  ).toBe('function');
+});
+
+// mocking a DOM API in jest
