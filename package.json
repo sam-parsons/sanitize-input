@@ -1,0 +1,11 @@
+{
+  "name": "sanitize-input",
+  "version": "0.0.1",
+  "description": "sanitize input elements with sanitizer web api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Parsons <samparsons269@gmail.com> (http://sam-parsons.github.io/)",
+  "license": "MIT"
+}
