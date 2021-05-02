@@ -1,6 +1,6 @@
 # sanitize-input
 
-Scrub user inputs with the [Sanitizer Web API](https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer).
+Simple, declarative interface to crub user inputs with the [Sanitizer Web API](https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer).
 
 <!-- ## Features
 
@@ -16,6 +16,10 @@ The Sanitizer Web API is currently in development, try to use Chrome Canary with
 ```
 npm install sanitize-input
 ```
+
+## API
+
+The `Sanitize` function behaves in two ways. Given a string, it will return a sanitized string. Given an event handler, `Sanitize` will wrap the function, creating a `sanitizedValue` property on `event.target`.
 
 ## Usage
 
@@ -45,7 +49,7 @@ class App extends React.Component {
 }
 ```
 
-2. Wrap an event handler, access e.target.sanitizedValue
+2. Wrap an event handler, access `e.target.sanitizedValue`
 
 ```js
 import Sanitize from 'sanitize-input';
