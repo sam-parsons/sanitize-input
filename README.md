@@ -7,6 +7,10 @@ Simple, declarative interface to crub user inputs with the [Sanitizer Web API](h
 - Argument type
 - custom options... -->
 
+## Motivation
+
+The Sanitizer Web API is a tool which allows developers to take untrusted strings of HTML, and sanitize them for safe insertion into a document’s DOM. `sanitize-input` simplifies `window.Sanitizer`'s API, removing programmatic access to DOM in favor of a more declarative interface useful for frontend frameworks.
+
 ## Compatability
 
 The Sanitizer Web API is currently in development, try to use Chrome Canary with `chrome://flags/#enable-experimental-web-platform-features` enabled, or Firefox Nightly with `dom.security.sanitizer.enabled` set to true.
