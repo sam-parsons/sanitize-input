@@ -1,6 +1,6 @@
 # sanitize-input
 
-Simple, declarative interface to crub user inputs with the [Sanitizer Web API](https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer).
+Simple, declarative interface to scrub user inputs with the [Sanitizer Web API](https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer).
 
 <!-- ## Features
 
