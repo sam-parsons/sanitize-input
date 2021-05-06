@@ -10,17 +10,17 @@ module.exports = function () {
    */
 
   // creates one reusable instance
-  const san = new window.Sanitizer();
+  const sanitizer = new window.Sanitizer();
 
   return function (arg, options) {
     // if arg is string, then return sanitized string
     if (typeof arg === 'string') {
-      return san.sanitizeToString(arg);
+      return sanitizer.sanitizeToString(arg);
     }
     // if arg is function, return event handler function with e.target.sanitizedValue
     else if (typeof arg === 'function') {
       const callback = arg;
-      const san = new window.Sanitizer();
+      const sanitizer = new window.Sanitizer();
       return function (e) {
         e.target.sanitizedValue = san.sanitizeToString(e.target.value);
         callback(e);
