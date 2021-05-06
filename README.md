@@ -23,23 +23,25 @@ npm install sanitize-input
 
 ## API
 
-The `Sanitize` function behaves in two ways. Given a string, it will return a sanitized string. Given an event handler, `Sanitize` will wrap the function, creating a `sanitizedValue` property on `event.target`.
+Invoking the default export from `sanitize-input` will return a function that has a closed over reference to a single instance of `window.Sanitizer`. This returned function (`this.sanitize` in the examples) behaves in two ways. Given a string, it will return a sanitized string. Given an event handler, `Sanitize` will wrap the function, creating a `sanitizedValue` property on `event.target`.
 
 ## Usage
 
 1. Sanitize strings directly
 
 ```js
-import Sanitize from 'sanitize-input';
+import Sanitizer from 'sanitize-input';
 
 class App extends React.Component {
   constructor() {
     this.state = { inputText: 'none' };
     this.onChange = this.onChange.bind(this);
+    // creates one reusable instance of window.Sanitizer
+    this.sanitize = Sanitizer();
   }
 
   onChange(e) {
-    this.setState({ inputText: Sanitize(e.target.value) });
+    this.setState({ inputText: this.sanitize(e.target.value) });
   }
 
   render() {
@@ -56,12 +58,14 @@ class App extends React.Component {
 2. Wrap an event handler, access `e.target.sanitizedValue`
 
 ```js
-import Sanitize from 'sanitize-input';
+import Sanitizer from 'sanitize-input';
 
 class App extends React.Component {
   constructor() {
     this.state = { inputText: 'none' };
     this.onChange = this.onChange.bind(this);
+    // creates one reusable instance of window.Sanitizer
+    this.sanitize = Sanitizer();
   }
 
   onChange(e) {
@@ -71,7 +75,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" onChange={Sanitize(this.onChange)} />
+        <input type="text" onChange={this.sanitize(this.onChange)} />
         <p>{this.state.inputText}</p>
       </div>
     );
