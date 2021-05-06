@@ -5,12 +5,14 @@ const CreateSanitizerMock = require('../__mocks__/Sanitizer.mock');
 CreateSanitizerMock();
 
 test('should return string given string argument', () => {
-  expect(SanitizerPackage('this is a string')).toBe('this is a string');
+  const sanitize = SanitizerPackage();
+  expect(sanitize('this is a string')).toBe('this is a string');
 });
 
 test('should return function given function argument', () => {
+  const sanitize = SanitizerPackage();
   expect(
-    typeof SanitizerPackage(function (e) {
+    typeof sanitize(function (e) {
       return 'sanitized';
     })
   ).toBe('function');
