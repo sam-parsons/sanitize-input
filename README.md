@@ -83,6 +83,8 @@ class App extends React.Component {
 }
 ```
 
+For an even simpler API to use with React, use the [react-sanitize-input](https://github.com/sam-parsons/react-sanitize-input) component.
+
 ## License
 
 MIT
