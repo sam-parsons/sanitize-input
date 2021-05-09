@@ -64,7 +64,6 @@ class App extends React.Component {
   constructor() {
     this.state = { inputText: 'none' };
     this.onChange = this.onChange.bind(this);
-    // creates one reusable instance of window.Sanitizer
     this.sanitize = Sanitizer();
   }
 
