@@ -18,4 +18,14 @@ test('should return function given function argument', () => {
   ).toBe('function');
 });
 
-// mocking a DOM API in jest
+test('should add a sanitizedValue property to the cloned event object', () => {
+  const sanitize = SanitizerPackage();
+  const sanitizedFunc = sanitize(function (e) {
+    return e;
+  });
+  const newEvent = new InputEvent('change');
+  newEvent.target = { value: 'currentValue' };
+  const clonedEvent = sanitizedFunc(newEvent);
+
+  expect(clonedEvent.target).toHaveProperty('sanitizedValue');
+});
