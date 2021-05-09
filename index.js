@@ -22,7 +22,7 @@ module.exports = function () {
       const callback = arg;
       const sanitizer = new window.Sanitizer();
       return function (e) {
-        e.target.sanitizedValue = san.sanitizeToString(e.target.value);
+        e.target.sanitizedValue = sanitizer.sanitizeToString(e.target.value);
         callback(e);
       };
     }
